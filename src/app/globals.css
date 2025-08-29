@@ -1,0 +1,91 @@
+:root {
+  --primaryColor: #c64f56;
+}
+/* loader */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  --_c: no-repeat radial-gradient(farthest-side, var(--primaryColor) 92%, #0000);
+  background: var(--_c) top, var(--_c) left, var(--_c) right, var(--_c) bottom;
+  background-size: 12px 12px;
+  animation: l7 1s infinite;
+}
+@keyframes l7 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+.croped-start-image {
+  clip-path: polygon(9% 0, 100% 0, 100% 100%, 0% 100%);
+}
+@media screen and (max-width: 769px) {
+  .croped-start-image,
+  .croped-end-image {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+.croped-start {
+  transition: 1s;
+  cursor: pointer;
+}
+.croped-start:hover {
+  transform: scale(1.1);
+}
+.line {
+  height: 3px;
+  width: 120px;
+}
+.smallBoxs {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+.smallBoxs:hover {
+  background-color: var(--primaryColor) !important;
+  color: white;
+}
+.card {
+  border: none !important;
+}
+.navLink,
+.logo {
+  color: rgb(20, 20, 20);
+  text-decoration: none;
+  font-weight: 500;
+}
+.logo {
+  color: var(--primaryColor);
+  font-size: 2.5rem;
+}
+.navLink:hover {
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+/* flip icones */
+.rotateY180 {
+  display: inline-block;
+  transition: transform 1s;
+  font-size: 1.5rem;
+}
+.social li:hover .rotateY180 {
+  transform: rotateY(180deg);
+  color: var(--primaryColor);
+}
+
+.social li {
+  list-style-type: none;
+  display: inline;
+}
+
+.recipe-card {
+  cursor: pointer;
+  transition: shadow 0.3s ease;
+  background-color: #ccc;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* smooth shadow */
+}
+.recipe-card:hover img {
+  transform: scale(1.1);
+}
