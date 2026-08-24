@@ -11,7 +11,7 @@ export default async function page({
 }) {
   try {
     const response = await fetch(
-      `https://dummyjson.com/recipes/${params.productId}`
+      `https://dummyjson.com/recipes/${params.productId}`,
     );
     if (!response.ok) throw new Error("Failed to fetch");
     const data: Recipe = await response.json();
@@ -71,13 +71,20 @@ export default async function page({
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4" style={{ minHeight: "370px" }}>
-                  <div className="croped-start-image h-100 w-100">
+                <div
+                  className="col-md-4"
+                  style={{ minHeight: "370px", position: "relative" }}
+                >
+                  <div
+                    className="croped-start-image h-100 w-100"
+                    style={{ position: "relative" }}
+                  >
                     <Image
                       src={data.image}
-                      className="h-100 w-100 rounded-start croped-start"
                       alt={data.name}
                       fill
+                      style={{ objectFit: "cover" }}
+                      className="rounded-start croped-start"
                     />
                   </div>
                 </div>

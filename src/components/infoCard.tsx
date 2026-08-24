@@ -16,12 +16,16 @@ export default function InfoCard({ recipe }: CardProps) {
         <div className=" p-2  rounded-4 my-2 recipe-card">
           <div className="row">
             <div className="col-4">
-              <div className="position-relative" style={{ height: "150px" }}>
+              <div
+                className="position-relative"
+                style={{ height: "150px", width: "100%" }}
+              >
                 <Image
                   src={recipe.image}
                   alt={recipe.name}
-                  className="img-fluid rounded-4"
                   fill
+                  style={{ objectFit: "cover", cursor: "pointer" }}
+                  className="rounded-4"
                   onClick={() => {
                     redirect(`/recipy/${recipe.id}`);
                   }}
