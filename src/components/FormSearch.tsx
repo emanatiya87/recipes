@@ -2,13 +2,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect } from "react";
 import UseRecipeStore from "@/store/recipesStore";
-import { Recipe } from "@/store/recipesStore";
 type Inputs = {
   type: string;
   searchValue: string;
 };
 export default function FormSearch() {
-  const { fetchRecipes, recipes } = UseRecipeStore();
+  const { fetchRecipes, recipes, setSearchedArray } = UseRecipeStore();
 
   useEffect(() => {
     fetchRecipes();
@@ -16,7 +15,7 @@ export default function FormSearch() {
 
   useEffect(() => {
     setSearchedArray(recipes);
-  }, [recipes]);
+  }, [recipes, setSearchedArray]);
 
   const {
     register,
@@ -31,8 +30,6 @@ export default function FormSearch() {
     );
     setSearchedArray(filtered);
   };
-
-  const { setSearchedArray } = UseRecipeStore();
 
   return (
     <>

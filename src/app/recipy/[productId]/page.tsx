@@ -3,6 +3,7 @@ import { GiMeal } from "react-icons/gi";
 import { FaClock } from "react-icons/fa";
 import { LuCookingPot } from "react-icons/lu";
 import { Recipe } from "@/store/recipesStore";
+import Image from "next/image";
 export default async function page({
   params,
 }: {
@@ -72,10 +73,11 @@ export default async function page({
                 </div>
                 <div className="col-md-4" style={{ minHeight: "370px" }}>
                   <div className="croped-start-image h-100 w-100">
-                    <img
+                    <Image
                       src={data.image}
                       className="h-100 w-100 rounded-start croped-start"
                       alt={data.name}
+                      fill
                     />
                   </div>
                 </div>
@@ -107,7 +109,7 @@ export default async function page({
         </section>
       </>
     );
-  } catch (error) {
+  } catch {
     return <div>Failed to load recipes</div>;
   }
 }

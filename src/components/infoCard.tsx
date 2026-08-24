@@ -1,6 +1,7 @@
 "use client";
 import { FaRegHeart, FaFire, FaClock } from "react-icons/fa";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 import UseRecipeStore from "@/store/recipesStore";
 import { Recipe } from "@/store/recipesStore";
 interface CardProps {
@@ -15,14 +16,17 @@ export default function InfoCard({ recipe }: CardProps) {
         <div className=" p-2  rounded-4 my-2 recipe-card">
           <div className="row">
             <div className="col-4">
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="img-fluid rounded-4"
-                onClick={() => {
-                  redirect(`/recipy/${recipe.id}`);
-                }}
-              />
+              <div className="position-relative" style={{ height: "150px" }}>
+                <Image
+                  src={recipe.image}
+                  alt={recipe.name}
+                  className="img-fluid rounded-4"
+                  fill
+                  onClick={() => {
+                    redirect(`/recipy/${recipe.id}`);
+                  }}
+                />
+              </div>
             </div>
             <div className="col-8 d-flex flex-column justify-content-between">
               <div className="d-flex gap-2 align-items-start justify-content-between">
